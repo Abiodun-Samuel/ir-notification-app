@@ -45,7 +45,7 @@ const server = http.createServer(app);
 initializeSocket(server);
 
 // Define the server port from environment variables
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3333;
 
 // Start the server and listen on the specified port
 server.listen(PORT, () => {
