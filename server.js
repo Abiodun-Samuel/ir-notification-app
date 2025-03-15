@@ -4,13 +4,13 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { initializeSocket } from "./sockets/index.js";
 import routes from "./routes/index.js";
-import connectDB from "./config/db.js";
+// import connectDB from "./config/db.js";
 
 // Load environment variables
 dotenv.config();
 
 // Connect to MongoDB
-connectDB();
+// connectDB();
 
 const app = express();
 

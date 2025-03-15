@@ -1,5 +1,5 @@
 import { Server } from "socket.io";
-import ConnectedUser from "../models/ConnectedUser.js";
+// import ConnectedUser from "../models/ConnectedUser.js";
 import { events } from "../utils/eventConstants.js";
 
 // Function to initialize Socket.IO
@@ -29,11 +29,11 @@ export const initializeSocket = (server) => {
       console.log("User connecting:", { username, userId });
 
       // Store user connection details in the database
-      await ConnectedUser.findOneAndUpdate(
-        { userId },
-        { username, socketId: socket.id, connectedAt: new Date() },
-        { upsert: true, new: true }
-      );
+      // await ConnectedUser.findOneAndUpdate(
+      //   { userId },
+      //   { username, socketId: socket.id, connectedAt: new Date() },
+      //   { upsert: true, new: true }
+      // );
 
       socket.username = username;
       socket.userId = userId;
@@ -75,7 +75,7 @@ export const initializeSocket = (server) => {
       console.log(`User ${socket.userId} disconnected`);
 
       // Remove user from database when disconnected
-      await ConnectedUser.findOneAndDelete({ userId: socket.userId });
+      // await ConnectedUser.findOneAndDelete({ userId: socket.userId });
 
       if (reason === "io server disconnect") {
         socket.connect(); // Reconnect if server disconnected the user
